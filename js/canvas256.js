@@ -1,4 +1,8 @@
+'use strict';
+
 var Canvas256 = function() {
+	this.appendToBody = true;
+	this.canvas = undefined;
 };
 
 Canvas256.prototype = (function() {
@@ -27,10 +31,13 @@ Canvas256.prototype = (function() {
 			this.initCanvases();						
 			this.initPalette();
 
-			var that = this;
-			$(window).resize(function() { that.onResize(); });
+			if (this.appendToBody) {
+				var that = this;
+				$(window).resize(function() { that.onResize(); });
 
-			this.onResize();			
+				this.onResize();
+			}
+
 			this.clear();
 		},
 
@@ -39,7 +46,11 @@ Canvas256.prototype = (function() {
 			screenCanvas.width = screenWidth;
 			screenCanvas.height = screenHeight;
 			screenCanvas.style.backgroundColor = 'rgba(0, 0, 0, 1)';
-			$(document.body).append(screenCanvas);
+			this.canvas = screenCanvas;
+
+			if (this.appendToBody) {
+				$(document.body).append(screenCanvas);
+			}
 
 			screenCtx = screenCanvas.getContext('2d');
 			screenCtx.globalCompositeOperation = 'source-over';
