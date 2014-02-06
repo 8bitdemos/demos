@@ -1,5 +1,4 @@
 var Canvas256 = function() {
-	this.fitToWindow = true;
 };
 
 Canvas256.prototype = (function() {
@@ -82,13 +81,8 @@ Canvas256.prototype = (function() {
 		},
 
 		onResize: function() {
-			if (this.fitToWindow) {
-				this.calculateScreenInfo();
-				this.resizeCanvasCSS();
-			}
-			else {
-				$(screenCanvas).css('width', screenWidth * 2).css('height', screenHeight * 2);
-			}
+			this.calculateScreenInfo();
+			this.resizeCanvasCSS();
 		},
 
 		putPixel: function(x, y, color) {
@@ -108,9 +102,9 @@ Canvas256.prototype = (function() {
 		},
 
 		setPaletteColor: function(color, r, g, b) {
-			palette[color].r = Math.floor(r);
-			palette[color].g = Math.floor(g);
-			palette[color].b = Math.floor(b);
+			palette[color].r = r;
+			palette[color].g = g;
+			palette[color].b = b;
 
 			paletteChanged = true;
 		},
