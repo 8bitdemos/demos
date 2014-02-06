@@ -174,6 +174,91 @@ Canvas256.prototype = (function() {
 			}
 		},
 
+		hline: function(x0, x1, y, color) {
+			for (var x = x0; x <= x1; x++) {
+				this.putPixel(x, y, color);
+			}
+		},
+
+		clamp: function(x, min, max) {
+			if (x < min) return min;
+			if (x > max) return max;
+			return x;
+		},
+
+		check: function(name, x) {
+			var me = this.check;
+			if (me[name] === undefined) {
+				me[name] = { min: x, max: x };
+			}
+			else {
+				if (x < me[name].min) {
+					me[name].min = x;
+				}
+				else
+				if (x > me[name].max) {
+					me[name].max = x;
+				}
+			}
+		},
+
+		box: function(x0, y0, x1, y1, color) {
+			for (var j = y0; j <= y1; j++) {
+				for (var i = x0; i <= x1; i++) {
+					this.putPixel(i, j, color);
+				}
+			}
+		},
+
+		randomInt: function(min, max) {
+			return Math.floor(min + Math.random() * Math.abs(min - max));
+		},
+
+		getTextBitmap: function(text, fontSize) {
+			var me = this.getTextBitmap;
+			if (me.canvas === undefined) {
+				me.canvas = document.createElement('canvas');
+				me.canvas.width = 320;
+				me.canvas.height = 180;
+				me.canvas.style.backgroundColor = '#000';
+				me.ctx = me.canvas.getContext('2d');
+				me.ctx.globalCompositeOperation = 'source-over';
+				me.ctx.textBaseline = 'top';
+				me.ctx.fillStyle = '#fff';
+			}
+
+			var canvas = me.canvas;
+			var ctx = me.ctx;
+
+			ctx.clearRect(0, 0, 320, 180);
+
+			ctx.font = fontSize + 'px Arial, Helvetica, sans-serif';
+			ctx.fillText(text, 0, 0);
+
+			var width = Math.ceil(ctx.measureText(text).width);
+			fontSize = Math.ceil(fontSize);
+
+			var bitmap = { width: width, height: fontSize };
+			bitmap.data = new Uint8Array(width * fontSize);
+			var data = ctx.getImageData(0, 0, width, fontSize);
+			for (var i = 0; i < width * fontSize; i++) {
+				bitmap.data[i] = data.data[i * 4];
+			}	
+
+			return bitmap;
+		},
+
+		flare: function(factor) {
+			for (var j = 1; j < 179; j++) {
+				for (var i = 1; i < 319; i++) {
+					var c = this.getPixel(i, j) + this.getPixel(i - 1, j) + this.getPixel(i + 1, j) + 
+						this.getPixel(i, j + 1) + this.getPixel(i, j - 1);
+					c = Math.floor(c / factor);
+					this.putPixel(i, j, c);
+				}
+			}
+		},
+
 		initPalette: function() {
 			palette[0] = { r: 0, g: 0, b: 0, a: 255 };
 			palette[1] = { r: 0, g: 0, b: 168, a: 255 };
