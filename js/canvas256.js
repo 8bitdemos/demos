@@ -213,9 +213,9 @@ Canvas256.prototype = (function() {
 			}
 		},
 
-		box: function(x0, y0, x1, y1, color) {
-			for (var j = y0; j <= y1; j++) {
-				for (var i = x0; i <= x1; i++) {
+		box: function(x, y, w, h, color) {
+			for (var j = y; j <= y + h; j++) {
+				for (var i = x; i <= x + w; i++) {
 					this.putPixel(i, j, color);
 				}
 			}
