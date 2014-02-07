@@ -4,52 +4,68 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>8bitdemos by 8bitdemos</title>
-
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/8bitdemos/demos">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/8bitdemos/demos/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/8bitdemos/demos/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
     <div class="wrapper">
-      <header>
-        <h1>8bitdemos</h1>
-        <p></p>
 
-        <p class="view"><a href="https://github.com/8bitdemos/demos">View the Project on GitHub <small>8bitdemos/demos</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/8bitdemos/demos/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/8bitdemos/demos/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/8bitdemos/demos">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
       <section>
-        <h3>
-<a name="a-collection-of-early-90s-style-demos-written-in-javascript" class="anchor" href="#a-collection-of-early-90s-style-demos-written-in-javascript"><span class="octicon octicon-link"></span></a>A collection of early '90s-style demos, written in JavaScript</h3>
+        <div id="title">
+          <h1>8bitdemos</h1>
+          <p>A collection of early &#39;90s-style demos, written in JavaScript.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/8bitdemos">8bitdemos</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-<p>To simulate <a href="http://en.wikipedia.org/wiki/Mode_13h">Mode 13h</a>, a small (and as of yet, highly unoptimized) lib called <a href="https://github.com/8bitdemos/demos/blob/gh-pages/js/canvas256.js">Canvas256</a> is used.</p>
+        <p>To simulate <a href="http://en.wikipedia.org/wiki/Mode_13h"><strong>Mode 13h</strong></a>, a small (and as of yet, highly unoptimized) lib called <a href="https://github.com/8bitdemos/demos/blob/gh-pages/js/canvas256.js"><strong>Canvas256</strong></a> is used.</p>
 
-<p>Canvas256 provides a 320x180 HTML5 canvas, which can be manipulated in 256-color palette mode (palette effects such as old school fire are doable).</p>
+<p><strong>Canvas256</strong> provides a <strong>320x180</strong> (16:9) HTML5 canvas, which can be manipulated in <strong>256-color palette mode</strong> (palette effects such as old school fire are doable).</p>
 
 <p>The demos have been tested on (best results in descending order):</p>
 
 <ul>
-<li>Mozilla Firefox 27</li>
-<li>Apple Safari 7</li>
-<li>Internet Explorer 11</li>
-<li>Google Chrome 32</li>
+<li><strong>Mozilla Firefox 27</strong></li>
+<li><strong>Apple Safari 7</strong></li>
+<li><strong>Internet Explorer 11</strong></li>
+<li><strong>Google Chrome 32</strong></li>
 </ul><p>Currently (and to the best of my knowledge), only FF and Safari support nearest-neighbor interpolation. IE and Chrome instead use bilinear interpolation, which doesn't look as crisp.</p>
+
+<p><strong>Feedback is welcome at <a href="mailto:8bitdemos@gmail.com">8bitdemos@gmail.com</a>.</strong></p>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/8bitdemos">8bitdemos</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-47858584-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
